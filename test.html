@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Engine</title>
+    <style>
+    body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.search-container {
+    background-color: #6c6c6c;
+    color: #fff;
+    text-align: center;
+    padding: 1em;
+    height: 700px;
+    justify-content: center;
+}
+
+.search-box {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+h1{
+    font-size:80px
+}
+.navbar{
+    height: 100px;
+    width: 100%;
+    background-color: #6fa6d5;
+    display:flex;
+    justify-content:flex-end;
+    
+}
+H4{
+    color: #FFF;
+    margin-left: 50px;
+    margin-top: 30px;
+}
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="registration.html"><h4>SIGN UP</h4></a>
+        <a href="login.html"><h4>SIGN IN</h4></a>
+
+    </div> 
+       <div class="search-container">
+        <h1>Search Engine</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Enter your search...">
+            <button onclick="search()">Search</button>
+        </div>
+    </div>
+
+    <div id="searchResults">
+    </div>
+</body>
+<script>
+    function search() {
+
+    var searchTerm = document.getElementById('searchInput').value;
+let inputV=searchInput.value;
+
+let strlen=inputV.length;
+console.log(inputV);
+
+inputV=inputV.replace(" ","+")
+console.log(inputV);
+let mainstr="https://www.google.com/search?q="+inputV;
+window.open(mainstr);
+}
+
+function displayResults(results) {
+    var resultsContainer = document.getElementById('searchResults');
+    // Clear previous results
+    resultsContainer.innerHTML = '';
+
+    results.forEach(function(result) {
+        var resultElement = document.createElement('p');
+        resultElement.textContent = result;
+        resultsContainer.appendChild(resultElement);
+    });
+}
+
+</script>
+</html>

@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="reg.css">
+        <title>resgistration</title>
+        <style>
+
+            body{
+                font-family:Trebuchet MS;
+                height: 100%;
+                width: 100%;
+            }
+        
+        .container {
+            height: 500px;
+            width: 400px;
+            border: 1px solid #000;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+        }
+        h1{
+            text-align: center;
+        }
+        form{
+            width: 79%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            left: 40px;
+        }
+        
+        input{
+            height: 30px;
+            font-size:16px
+        }
+        label{
+            font-size:20px
+        }
+        
+        </style>
+        
+    </head>
+    <body>
+        <div class="container">
+            <h1>Registration</h1>
+            <form action="registration.php" method="post" >
+                <label for="First name">First name</label>
+                <input type="text" placeholder="First name" name="First_name" required><br>
+                <label for="Last name">Last name</label>
+                <input type="text" placeholder="Last name" name="Last_name" required><br>
+                <label for="Email">Email</label>
+                <input type="email" placeholder="Email" name="Email" required><br>
+                <label for="Pass">New Password</label>
+                <input required type="password" placeholder="Password" name="Pass" id="pass"><br>
+                <label for="Confirm Password">Confirm Password</label>
+                <input type="password" placeholder="Confirm Password" name="Password" id="cpassword" required><br>
+                <button class="btn" id="btn">Sign Up</button>
+            </form>
+        </div>
+        
+    </body>
+    <script>
+        var password = document.getElementById("pass") , confirm_password = document.getElementById("cpassword");
+
+function validatePassword(){
+if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+} else {
+    confirm_password.setCustomValidity('');
+}
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+    </script>
+
+</html>
